@@ -5,6 +5,14 @@
 #include <unistd.h>
 
 
+/**
+ * To-Do's 
+ *
+ * add readline functionality for in line editing
+ * add usage of .rcmash file
+ *
+ * **/
+
 #define MASH_TOK_BUFSIZE 64
 #define MASH_TOK_DELIM " \t\r\n\a"
 #define MASH_RL_BUFSIZE 1024

@@ -1,2 +1,2 @@
 all: 
-	gcc main.c -o mash
+	gcc main.c -o /usr/bin/mash
