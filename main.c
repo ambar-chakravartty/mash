@@ -5,14 +5,6 @@
 #include <unistd.h>
 
 
-/**
- * To-Do's 
- *
- * add readline functionality for in line editing
- * add usage of .rcmash file
- *
- * **/
-
 #define MASH_TOK_BUFSIZE 64
 #define MASH_TOK_DELIM " \t\r\n\a"
 #define MASH_RL_BUFSIZE 1024
@@ -77,7 +69,7 @@ char** mash_split_line(char* line){
         exit(EXIT_FAILURE);
       }
     }
-  
+
     token = strtok(NULL,MASH_TOK_DELIM);
 
   }
@@ -86,7 +78,7 @@ char** mash_split_line(char* line){
 }
 
 int mash_launch(char** args){
- 
+
   pid_t pid,wpid;
   int status;
 
@@ -103,7 +95,7 @@ int mash_launch(char** args){
       wpid = waitpid(pid,&status,WUNTRACED);
     }while(!WIFEXITED(status) && !WIFSIGNALED(status));
   }
-  
+
   return 1;
 }
 
@@ -170,10 +162,10 @@ int mash_execute(char** args){
   }
 
   for(i=0;i < mash_num_builtins();i++){
-  
+
     if(strcmp(args[0],builtin_str[i]) == 0) 
      return (*builtin_func[i])(args); 
-  
+
   }
 
   return mash_launch(args);
