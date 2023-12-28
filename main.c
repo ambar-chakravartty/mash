@@ -4,6 +4,8 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+#include <editline/readline.h>
+#include <editline/history.h>
 
 #define MASH_TOK_BUFSIZE 64
 #define MASH_TOK_DELIM " \t\r\n\a"
@@ -179,8 +181,9 @@ void mash_loop(void){
   int status;
 
   do{
-    printf(")>");
-    line = mash_readline();
+   // printf(")>");
+    line = readline("??:");
+    add_history(line);
     args = mash_split_line(line);
 
     status = mash_execute(args);

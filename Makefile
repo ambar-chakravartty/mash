@@ -1,2 +1,2 @@
 all: 
-	gcc main.c -o mash
+	gcc main.c -ledit -o mash
